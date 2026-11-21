@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Mahall 💜</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at top, #49316e, #171027 65%);
+  color: white;
+  font-family: Georgia, serif;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "✦  ·  ✧   ⋆  ·  ✦   ✧  ⋆  ·  ✦";
+  position: fixed;
+  inset: 10px 0;
+  color: #d9c2ff;
+  opacity: .35;
+  pointer-events: none;
+  word-spacing: 20px;
+  line-height: 90px;
+  z-index: -1;
+}
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: 65px 22px 40px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: appear .5s ease;
+}
+
+.screen.active { display: flex; }
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  color: #e5d1ff;
+  font-size: 2.2rem;
+  text-shadow: 0 0 18px #a779ed;
+}
+
+h2 { color: #d9c1ff; }
+
+p {
+  line-height: 1.8;
+  max-width: 550px;
+}
+
+.card {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255,255,255,.09);
+  border: 1px solid #a98bd1;
+  border-radius: 22px;
+  padding: 27px 22px;
+  box-shadow: 0 0 25px #8b63bd33;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #c5a5ee;
+  background: #281b3e;
+  color: white;
+  font-size: 17px;
+  text-align: center;
+  margin: 15px 0;
+}
+
+button {
+  background: linear-gradient(135deg,#a77bd6,#68439b);
+  color: white;
+  border: 1px solid #d9c1ff;
+  border-radius: 30px;
+  padding: 13px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 8px;
+  box-shadow: 0 0 15px #a77bd655;
+}
+
+button:hover { transform: scale(1.04); }
+
+.error { color: #ffb8d0; }
+
+.gifts {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 520px;
+  margin: 25px auto;
+}
+
+.gift {
+  background: rgba(255,255,255,.08);
+  border: 1px solid #a98bd1;
+  border-radius: 18px;
+  padding: 15px 5px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.gift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px #b58de8;
+}
+
+.gift-icon {
+  font-size: 55px;
+  animation: float 2s infinite ease-in-out;
+}
+
+@keyframes float {
+  50% { transform: translateY(-7px); }
+}
+
+.letter, .message-list {
+  text-align: left;
+  font-size: 16px;
+}
+
+.message-list p {
+  border-bottom: 1px solid #8f70b3;
+  padding-bottom: 10px;
+}
+
+.nav { margin-top: 25px; }
+
+.arrow {
+  font-size: 22px;
+  min-width: 55px;
+}
+
+video, iframe {
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+.music-note {
+  font-size: 12px;
+  color: #c8b3e8;
+  margin-top: 15px;
+}
+
+@media(max-width:400px) {
+  .gift-icon { font-size: 40px; }
+  h1 { font-size: 1.8rem; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD -->
+<section class="screen active" id="password">
+  <div class="card">
+    <h1>Guess the password! ✨</h1>
+    <p>Hint: When we started dating. 💜</p>
+    <input id="pass" placeholder="Enter the password">
+    <button onclick="checkPassword()">Unlock 💜</button>
+    <p id="error" class="error"></p>
+  </div>
+</section>
+
+<!-- WELCOME -->
+<section class="screen" id="welcome">
+  <h1>Happy Birthday Mahall!</h1>
+  <p>I hope you enjoy this gift I've made. 😊</p>
+  <p>Made with lots of love. 💜</p>
+  <button onclick="showScreen('gifts')">Continue →</button>
+</section>
+
+<!-- GIFTS -->
+<section class="screen" id="gifts">
+  <h1>Pick a Gift! 🎁</h1>
+  <p>Each one has a little surprise for you. ✨</p>
+
+  <div class="gifts">
+    <div class="gift" onclick="showScreen('letter')">
+      <div class="gift-icon">🎁</div>
+      <p>Gift 1</p>
+    </div>
+
+    <div class="gift" onclick="showScreen('seventeen')">
+      <div class="gift-icon">🎁</div>
+      <p>Gift 2</p>
+    </div>
+
+    <div class="gift" onclick="showScreen('song')">
+      <div class="gift-icon">🎁</div>
+      <p>Gift 3</p>
+    </div>
+  </div>
+</section>
+
+<!-- LETTER -->
+<section class="screen" id="letter">
+  <div class="card">
+    <h1>💌 A Letter for You</h1>
+    <div class="letter">
+      <p>
+      Happy Birthday to the best boyfriend in the whole world!!!
+      I'm so glad I could be part of your day. I just wanted to
+      thank you for being there for me all the time, even at times
+      when I didn't know I needed you. I appreciate everything
+      you've done for me since we first met.
+      </p>
+
+      <p>
+      You've made my old spark come back even brighter than ever.
+      I hope you always know I love you and will also be there for
+      you even at your lowest!
+      </p>
+
+      <p>
+      I'm really excited for the future days we'll have together.
+      The adventures, laughter, and memories we'll make.
+      </p>
+
+      <p>
+      HOPE YOU HAVE A WONDERFUL DAYY!!
+      Mahal na mahal kita :). 💜
+      </p>
+    </div>
+    <div class="nav">
+      <button onclick="showScreen('gifts')">← Gifts</button>
+      <button onclick="showScreen('seventeen')">Next →</button>
+    </div>
+  </div>
+</section>
+
+<!-- 17 THINGS -->
+<section class="screen" id="seventeen">
+  <div class="card">
+    <h1>17 Little Things About You & Me 💜</h1>
+
+    <div class="message-list">
+      <p>1. I pray for you every night before I go to sleep so I know you'll be safe.</p>
+      <p>2. I always proudly share with my friends about you.</p>
+      <p>3. You're always on my mind even if it's not obvious.</p>
+      <p>4. You helped me through difficult times and inspired me to become a better version of myself.</p>
+      <p>5. I already had a crush on you after two months of knowing each other.</p>
+      <p>6. You are my motivation for my studies because I'm excited to hear you say you're proud of me.</p>
+      <p>7. Everything you say to me makes me smile.</p>
+      <p>8. HAHAHA, when we call and say "I lly" to each other, I always jump up and down when you say it back.</p>
+      <p>9. I wanna squeeze Robbie.</p>
+      <p>10. Every time I see a Snoopy now, I think of you because I love Snoopy.</p>
+      <p>11. Many fat doggies and cats are okay with me HAHAHA.</p>
+      <p>12. When we call, your voice really calms me down and my worries disappear for a while.</p>
+      <p>13. I always wish to become better for you.</p>
+      <p>14. I'm always proud of you for every accomplishment you achieve and deserve!</p>
+      <p>15. I'm excited for all the things we could do when we meet!</p>
+      <p>16. I don't see myself with other guys, even in the future, because you're the only one who brought out sides of me I'll never show to other people.</p>
+      <p>17. I love you so much. 💜</p>
+    </div>
+
+    <div class="nav">
+      <button onclick="showScreen('gifts')">← Gifts</button>
+      <button onclick="showScreen('song')">Next →</button>
+    </div>
+  </div>
+</section>
+
+<!-- SONG -->
+<section class="screen" id="song">
+  <div class="card">
+    <h1>🎵 A Song for You</h1>
+    <p>You'll Be Safe Here</p>
+    <p>By Rico Blanco 💜</p>
+
+    <p>I'll put the music video here once we add its official video link.</p>
+
+    <div id="video">
+      <p class="music-note">Music video will appear here.</p>
+    </div>
+
+    <div class="nav">
+      <button onclick="showScreen('gifts')">← Gifts</button>
+      <button onclick="showScreen('ending')">Next →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ENDING -->
+<section class="screen" id="ending">
+  <h1>Enjoy your birthday, my lovee! 💜</h1>
+  <p>I'm so lucky to have you. ✨</p>
+  <p>With all my love, always.</p>
+  <div style="font-size:45px">🌌💜✨</div>
+</section>
+
+<script>
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(screen => {
+    screen.classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function checkPassword() {
+  const answer = document.getElementById('pass')
+    .value.replace(/\s/g,'');
+  if(answer === '8142026') {
+    showScreen('welcome');
+  } else {
+    document.getElementById('error').textContent =
+      'Not quite! Try again. 💜';
+  }
+}
+
+document.getElementById('pass').addEventListener('keydown', e => {
+  if(e.key === 'Enter') checkPassword();
+});
+</script>
+
+</body>
+</html>
