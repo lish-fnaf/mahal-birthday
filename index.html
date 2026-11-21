@@ -167,18 +167,12 @@ video, iframe {
 </head>
 
 <body>
-<!-- BACKGROUND MUSIC PLAYER -->
-<div style="position:fixed;bottom:10px;right:10px;z-index:99999;width:160px;background:#281b3e;padding:6px;border:1px solid #d9c1ff;border-radius:12px;">
-  <p style="color:white;font-size:11px;margin:3px;">🎵 Kabisado</p>
-  <iframe
-    width="100%"
-    height="90"
-    src="https://www.youtube.com/embed/6z8cejdkTqQ?controls=1"
-    title="Kabisado Instrumental"
-    allow="encrypted-media; picture-in-picture"
-    allowfullscreen>
-  </iframe>
-</div>
+<!-- MUSIC BUTTON -->
+<button
+  onclick="window.open('https://www.youtube.com/watch?v=6z8cejdkTqQ','_blank')"
+  style="position:fixed;bottom:15px;right:15px;z-index:99999;">
+  🎵 Music
+</button>
 <!-- PASSWORD -->
 <section class="screen active" id="password">
   <div class="card">
