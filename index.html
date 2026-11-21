@@ -168,11 +168,23 @@ video, iframe {
 
 <body>
 <!-- MUSIC BUTTON -->
-<button
-  onclick="window.open('https://www.youtube.com/watch?v=6z8cejdkTqQ','_blank')"
-  style="position:fixed;bottom:15px;right:15px;z-index:99999;">
-  🎵 Music
-</button>
+<div style="position:fixed;bottom:15px;right:15px;z-index:99999;">
+  <button onclick="document.getElementById('musicBox').style.display =
+  document.getElementById('musicBox').style.display === 'none' ? 'block' : 'none'">
+    🎵 Music
+  </button>
+
+  <div id="musicBox" style="display:none;background:#281b3e;padding:8px;border:1px solid #d9c1ff;border-radius:12px;width:280px;">
+    <iframe
+      width="100%"
+      height="158"
+      src="https://www.youtube.com/embed/6z8cejdkTqQ?controls=1"
+      title="Kabisado Instrumental"
+      allow="encrypted-media; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
 <!-- PASSWORD -->
 <section class="screen active" id="password">
   <div class="card">
